@@ -124,56 +124,6 @@ export default function SearchFilters() {
       </div>
 
       <div className="chips" role="group" aria-label="Categories">
-
-A 'src\components\SearchFilters.jsx' @'
-
-      <div className="filters-row">
-        <div className="field">
-          <label htmlFor="dateFrom">From</label>
-          <input
-            id="dateFrom"
-            type="date"
-            min={today}
-            value={filters.dateFrom}
-            onChange={(e) => dispatch(setFilters({ dateFrom: e.target.value }))}
-          />
-        </div>
-        <div className="field">
-          <label htmlFor="dateTo">To</label>
-          <input
-            id="dateTo"
-            type="date"
-            min={filters.dateFrom || today}
-            value={filters.dateTo}
-            onChange={(e) => dispatch(setFilters({ dateTo: e.target.value }))}
-          />
-        </div>
-        <div className="chips" role="group" aria-label="Quick date ranges">
-          <button
-            type="button"
-            className={`chip ${inNext(7) ? 'chip-active' : ''}`}
-            aria-pressed={inNext(7)}
-            onClick={() => dispatch(setFilters({ dateFrom: today, dateTo: addDaysInput(7) }))}
-          >
-            Next 7 days
-          </button>
-          <button
-            type="button"
-            className={`chip ${inNext(30) ? 'chip-active' : ''}`}
-            aria-pressed={inNext(30)}
-            onClick={() => dispatch(setFilters({ dateFrom: today, dateTo: addDaysInput(30) }))}
-          >
-            Next 30 days
-          </button>
-          {hasFilters && (
-            <button type="button" className="btn btn-ghost" onClick={handleReset}>
-              Clear filters
-            </button>
-          )}
-        </div>
-      </div>
-
-      <div className="chips" role="group" aria-label="Categories">
         <button
           type="button"
           className={`chip ${filters.category === '' ? 'chip-active' : ''}`}
