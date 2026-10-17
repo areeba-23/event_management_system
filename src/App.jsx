@@ -1,5 +1,6 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';
+import EventDetails from './pages/EventDetails';
 import Events from './pages/Events';
 import Login from './pages/Login';
 import NotFound from './pages/NotFound';
@@ -15,6 +16,7 @@ export default function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/events" element={<Events />} />
+          <Route path="/events/:id" element={<EventDetails />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
