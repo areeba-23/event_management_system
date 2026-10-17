@@ -1,11 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit';
 import authReducer from '../features/auth/authSlice';
 import eventsReducer from '../features/events/eventsSlice';
+import registrationsReducer from '../features/registrations/registrationsSlice';
 
 export const store = configureStore({
   reducer: {
     auth: authReducer,
     events: eventsReducer,
+    registrations: registrationsReducer,
   },
 });
 
@@ -24,5 +26,7 @@ store.subscribe(() => {
   const next = store.getState();
   if (next.auth.users !== prev.auth.users) write('ems_users', next.auth.users);
   if (next.auth.currentUser !== prev.auth.currentUser) write('ems_session', next.auth.currentUser);
+  if (next.registrations.byUser !== prev.registrations.byUser)
+    write('ems_registrations', next.registrations.byUser);
   prev = next;
 });
